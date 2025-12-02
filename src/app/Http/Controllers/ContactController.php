@@ -21,7 +21,7 @@ class ContactController extends Controller
         $data = $request->validated();
         $contact = $data;
 
-        $contact['name'] = $data['last_name'] . '　' . $data['first_name'];
+        $contact['name'] = $data['first_name'] . '　' . $data['last_name'];
         $contact['tel']  = $data['tel_first'] . '-' . $data['tel_second'] . '-' . $data['tel_third'];
 
         $genderLabels = [

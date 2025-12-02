@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
 @endsection
 
 @section('title', 'Contact')
@@ -10,7 +10,9 @@
 
 @section('content')
 <div class="contact__header">
-    <h2>Confirm</h2>
+    <div class="contact__header-logo">
+        <h2>Confirm</h2>
+    </div>
 </div>
 <section class="contact">
     <form class="confirm-form" action="/contacts" method="post">
@@ -69,13 +71,14 @@
                     </td>
                 </tr>
             </table>
-            <div class="confirm-form__button-submit">
-                <button class="form__button-submit" type="submit" name="action" value="send">送信</button>
+            <div class="confirm-form__button">
+                <div class="confirm-form__button-send">
+                    <button class="confirm-form__button-send-submit" type="submit" name="action" value="send">送信</button>
+                </div>
+                <div class="confirm-form__button-back">
+                    <button class="confirm-form__button-back-submit" type="submit" name="action" value="back">修正</button>
+                </div>
             </div>
-            <div class="confirm-form__button-back">
-                <button class="form__button-submit" type="submit" name="action" value="back">修正</button>
-            </div>
-            
         </div>
     </form>
 </section>

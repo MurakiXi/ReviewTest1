@@ -1,5 +1,5 @@
 .contact__header {
-    color: #988e85;
+    color: #b9a392;
     margin: 25px auto;
 }
 
@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     max-width: 1230px;
-    color: #988e85;
+    color: #b9a392;
     margin-bottom: 15px;
 }
 
@@ -41,7 +41,7 @@
     background: #eee;
     border: none;
     border-radius: 3px;
-    color: #988e85;
+    color: #b9a392;
     padding: 5px 20px;
     width: 45%;
 }
@@ -73,7 +73,7 @@
     background: #eee;
     border: none;
     border-radius: 3px;
-    color: #988e85;
+    color: #b9a392;
     padding: 5px 20px;
     width: 25%;
 }
@@ -82,7 +82,7 @@
     background: #eee;
     border: none;
     border-radius: 3px;
-    color: #988e85;
+    color: #b9a392;
     padding: 15px 20px;
     width: 45%;
     height: 100px;
@@ -97,7 +97,12 @@
 .contact-form__button-submit {
     padding: 10px;
     border: none;
-    background: #988d85;
+    background: #b9a392;
     color: white;
     width: 100%;
+}
+
+.contact-form__error {
+    color: red;
+    margin-left: 30%;
 }

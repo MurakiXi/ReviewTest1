@@ -9,9 +9,13 @@
 }
 
 .header__logo {
-    color: #988e85;
+    color: #b9a392;
     text-decoration: none;
     font-weight: bold;
     font-size: 32px;
     text-align: center;
+}
+
+.body-thanks .header {
+    display: none;
 }
