@@ -26,7 +26,7 @@
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">性別</th>
-                    <td class="confirm-table__item">{{ $contact['gender']}}
+                    <td class="confirm-table__item">{{ $contact['gender_label']}}
                         <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
                     </td>
                 </tr>
@@ -64,8 +64,8 @@
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お問い合わせ内容</th>
-                    <td class="confirm-table__item">{!! nl2br(e($contact['content'])) !!}
-                        <input type="hidden" name="content" value="{{ $contact['content'] }}">
+                    <td class="confirm-table__item">{!! nl2br(e($contact['detail'])) !!}
+                        <input type="hidden" name="detail" value="{{ $contact['detail'] }}">
                     </td>
                 </tr>
             </table>

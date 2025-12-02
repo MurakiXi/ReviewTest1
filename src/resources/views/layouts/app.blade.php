@@ -15,7 +15,7 @@
   <header class="header">
     <div class="header__inner">
       <h1 class="header__logo">
-        <a href="/" class="header__logo__link"></a>
+        <a href="/" class="header__logo-link"></a>
             FashionablyLate
         </a>
       </h1>

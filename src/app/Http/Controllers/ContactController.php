@@ -12,22 +12,31 @@ class ContactController extends Controller
     //
     public function index()
     {
-        return view('index');
+        $categories = Category::all();
+        return view('index', compact('categories'));
     }
 
     public function confirm(ContactRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $contact = $data;
 
         $contact['name'] = $data['last_name'] . '　' . $data['first_name'];
         $contact['tel']  = $data['tel_first'] . '-' . $data['tel_second'] . '-' . $data['tel_third'];
+
+        $genderLabels = [
+            1 => '男性',
+            2 => '女性',
+            3 => 'その他',
+        ];
+        $contact['gender_label'] = $genderLabels[(int)$data['gender']] ?? '';
 
         $category = Category::find($data['category_id']);
         $contact['category_name'] = $category ? $category->content : '';
 
         return view('confirm', compact('contact'));
     }
+
 
     public function store(ContactRequest $request)
     {
@@ -40,16 +49,13 @@ class ContactController extends Controller
             'last_name',
             'gender',
             'email',
-            'tel_first',
-            'tel_second',
-            'tel_third',
             'address',
             'building',
             'category_id',
-            'content',
+            'detail',
         ]);
 
-        $data['tel'] = $data['tel_first'] . $data['tel_second'] . $data['tel_third'];
+        $data['tel'] = $request['tel_first'] . $request['tel_second'] . $request['tel_third'];
 
         Contact::create($data);
 
@@ -57,6 +63,6 @@ class ContactController extends Controller
     }
     public function thanks()
     {
-        return view ('thanks');
+        return view('thanks');
     }
 }
