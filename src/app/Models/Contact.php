@@ -26,8 +26,32 @@ class Contact extends Model
         'detail',
     ];
 
+    public function getGenderLabelAttribute()
+    {
+        return [
+            1 => '男性',
+            2 => '女性',
+            3 => 'その他',
+        ][$this->gender] ?? '';
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function scopeContactSearch($query, $category_id)
+    {
+        if (!empty($category_id)) {
+            $query->where('category_id', $category_id);
+        }
+    }
+
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+            $query->where('content', 'like', '%' . $keyword . '%');
+        }
+        return $query;
     }
 }

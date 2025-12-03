@@ -1,0 +1,39 @@
+.body-register,
+.body-login {
+    background-color: #f3ede7;
+}
+
+.auth-form {
+    max-width: 700px;
+    margin: 80px auto;
+    background: #fff;
+    border-radius: 3px;
+    padding: 80px 100px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .05);
+}
+
+.auth-form__item {
+    margin-bottom: 40px;
+}
+
+.auth-form__label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.auth-form__input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #f6f6f6;
+    border: none;
+}
+
+.auth-form__button {
+    text-align: center;
+}
+
+.auth-form__button-submit {
+    min-width: 140px;
+    padding: 10px 30px;
+    border: none;
+}
