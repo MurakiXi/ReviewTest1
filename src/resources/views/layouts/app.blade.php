@@ -19,7 +19,11 @@
             FashionablyLate
         </a>
       </h1>
-      @yield('header-nav')  {{-- login/logout/register追加--}}
+      @hasSection('header_button')
+        <div class="header__button">
+          @yield('header_button')
+        </div>
+      @endif
     </div>
   </header>
 

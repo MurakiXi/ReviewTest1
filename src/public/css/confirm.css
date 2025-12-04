@@ -1,5 +1,5 @@
 .contact__header {
-    color: #b9a392;
+    color: #816850e1;
     margin: 25px auto;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .confirm-table__header {
-    background: #b9a392;
+    background: #816850e1;
     color: #fff;
     text-align: left;
     padding-left: 40px;
@@ -41,7 +41,7 @@
 }
 
 .confirm-table__item {
-    color: #b9a392;
+    color: #816850e1;
     padding-left: 40px;
     width: 75%
 }
@@ -73,7 +73,7 @@
 .confirm-form__button-back-submit {
     width: 100%;
     padding: 5px;
-    color: #b9a392;
+    color: #816850e1;
     border: none;
     background: #fff;
 }

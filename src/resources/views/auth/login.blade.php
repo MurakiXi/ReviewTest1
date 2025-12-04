@@ -7,6 +7,10 @@
 @section('title', 'Login')
 @section('body_class', 'body-login')
 
+@section('header_button')
+    <a href="{{ route('register') }}" class="header-button__link">register</a>
+@endsection
+
 @section('content')
 <div class="auth-header">
     <div class="auth-header__logo">

@@ -1,15 +1,17 @@
 .header {
     border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header__inner {
     margin: 0 auto;
-    padding: 20px 15px;
     max-width: 1230px;
 }
 
 .header__logo {
-    color: #b9a392;
+    color: #816850e1;
     text-decoration: none;
     font-weight: bold;
     font-size: 32px;
@@ -18,4 +20,29 @@
 
 .body-thanks .header {
     display: none;
+}
+
+.header__button {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
+
+.header-button__link {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid #d8c3aa;
+    font-size: 14px;
+    color: #d8c3aa;
+    background-color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+.header-button__link:hover {
+    opacity: 0.8;
+}
+
+.header-button__form {
+    margin: 0;
 }
