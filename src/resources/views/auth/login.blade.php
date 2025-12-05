@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+<link rel="stylesheet" href="{{ asset('css/auth/auth.css') }}">
 @endsection
 
 @section('title', 'Login')
@@ -12,15 +12,15 @@
 @endsection
 
 @section('content')
-<div class="auth-header">
-    <div class="auth-header__logo">
+<div class="auth__header">
+    <div class="auth__header-logo">
         <h2>Login</h2>
     </div>
 </div>
 
 <section class="login">
     <div class="auth-inner">
-        <form action="{{ route('login')}}" method="POST" class="auth-form">
+        <form action="{{ route('login.submit')}}" method="POST" class="auth-form">
         @csrf
             <div class="auth-form__item">
                 <label class="auth-form__label">メールアドレス</label>

@@ -65,14 +65,14 @@
                 <span class="contact-form__label-required">※</span>
             </div>
             <input type="tel" class="contact-form__item-input contact-form__item-input--tel" name="tel_first" placeholder="080" value="{{ old('tel_first')}}">
-                -
             <input type="tel" class="contact-form__item-input contact-form__item-input--tel" name="tel_second" placeholder="1234" value="{{ old('tel_second')}}">
-                -
             <input type="tel" class="contact-form__item-input contact-form__item-input--tel" name="tel_third" placeholder="5678" value="{{ old('tel_third')}}">
         </div>
-        @error('tel')
-            <p class="contact-form__error">{{ $message }}</p>
-        @enderror
+        @if ($errors->has('tel_first') || $errors->has('tel_second') || $errors->has('tel_third'))
+            <p class="form-error">
+                {{ $errors->first('tel_first') ?: ($errors->first('tel_second') ?: $errors->first('tel_third')) }}
+            </p>
+        @endif
         <div class="contact-form__item">
             <div class="contact-form__item-title">
                 <span class="contact-form__label-item">住所</span>

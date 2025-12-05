@@ -27,7 +27,10 @@ class AdminController extends Controller
 
         if (!empty($keyword)) {
             $query->where(function ($q) use ($keyword) {
-                $q->where('name', 'like', "%{$keyword}%")
+                $q->where('first_name', 'like', "%{$keyword}%")
+                    ->orWhere('last_name', 'like', "%{$keyword}%")
+                    ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ["%{$keyword}%"])
+                    ->orWhereRaw("CONCAT(last_name, first_name) LIKE ?", ["%{$keyword}%"])
                     ->orWhere('email', 'like', "%{$keyword}%");
             });
         }
@@ -47,17 +50,21 @@ class AdminController extends Controller
         $contacts = $query
             ->paginate(7)
             ->appends($request->only(['keyword', 'gender', 'category_id', 'updated_at']));
+        $categories = Category::all();
 
-        return view('admin.index', compact('contacts', 'categories'));
+        return view('admin.admin', compact('contacts', 'categories'));
     }
 
 
-    public function reset() {}
+    public function reset()
+    {
+        return redirect()->route('admin.index');
+    }
 
     public function destroy(Request $request)
     {
         Contact::find($request->id)->delete();
-        return redirect()->route('/admin.index')->with('message', 'お問い合わせを削除しました');
+        return redirect()->route('admin.index')->with('message', 'お問い合わせを削除しました');
     }
     public function export() {}
 }

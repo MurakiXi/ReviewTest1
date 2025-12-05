@@ -47,13 +47,18 @@
                 </select>
                 <input type="date" class="search-form__item--select" name="updated_at" value="{{ old('updated_at') }}">
                 <div class="search-form__button">
-                    <button class="search-form__button--search" type="submit">検索</button>
-                    <button type="submit" formaction="{{ route('admin.reset') }}" class="search-form__button--reset">リセット</button>
+                    <button class="search-form__button-submit" type="submit">
+                        検索
+                    </button>
+                    <button class="search-form__reset-submit" type="submit" formaction="{{ route('admin.reset') }}">
+                    リセット
+                    </button>
                 </div>
             </form>
         </div>
         <div class="search-form__index">
             <form method="GET" action="{{ route('admin.export') }}" class="search-form__export-button">
+                @csrf
                 <button class="search-form__export-button-submit" type="submit">エクスポート</button>
             </form>
             <div class="search-form__pagination">

@@ -3,9 +3,18 @@
     background-color: #f3ede7;
 }
 
+.auth__header {
+    color: #816850e1;
+    margin: 20px auto;
+}
+
+.auth__header-logo {
+    text-align: center;
+}
+
 .auth-form {
     max-width: 700px;
-    margin: 80px auto;
+    margin: 40px auto;
     background: #fff;
     border-radius: 3px;
     padding: 80px 100px;
@@ -33,7 +42,14 @@
 }
 
 .auth-form__button-submit {
-    min-width: 140px;
-    padding: 10px 30px;
+    padding: 10px 40px;
     border: none;
+    background: #816850e1;
+    color: #fff;
+}
+
+.auth-form__error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }
