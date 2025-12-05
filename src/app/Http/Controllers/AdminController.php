@@ -55,15 +55,15 @@ class AdminController extends Controller
         return view('admin.admin', compact('contacts', 'categories'));
     }
 
-
     public function reset()
     {
         return redirect()->route('admin.index');
     }
 
-    public function destroy(Request $request)
+    public function destroy(Contact $contact)
     {
-        Contact::find($request->id)->delete();
+        $contact->delete();
+
         return redirect()->route('admin.index')->with('message', 'お問い合わせを削除しました');
     }
     public function export() {}

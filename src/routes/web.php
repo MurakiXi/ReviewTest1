@@ -36,4 +36,5 @@ Route::middleware('auth')
         Route::post('/reset',  [AdminController::class, 'reset'])->name('reset');
         Route::get('/export',  [AdminController::class, 'export'])->name('export');
         Route::get('/admin/{contact}', [AdminController::class, 'show'])->name('show');
+        Route::delete('/admin/{contact}', [AdminController::class, 'destroy'])->name('destroy');
     });

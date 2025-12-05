@@ -81,18 +81,74 @@
                     <td class="result-table__item">{{ $contact->email}}</td>
                     <td class="result-table__item">{{ $contact->category->content}}</td>
                     <td class="result-table__item">
-                        <div class="result-table__detail">
-                            <a href="{{ route('admin.show', $contact->id) }}" class="result-table__detail-button">
+                        <button type="button"
+                            class="result-table__detail"
+                            data-name="{{ $contact->first_name }}　{{ $contact->last_name }}"
+                            data-gender="{{ $contact->gender_label }}"
+                            data-email="{{ $contact->email }}"
+                            data-tel="{{ $contact->tel}}"
+                            data-address="{{ $contact->address }}"
+                            data-building="{{ $contact->building }}"
+                            data-category="{{ $contact->category->content }}"
+                            data-content="{{ $contact->content }}"
+                            data-delete-url="{{ route('admin.destroy', $contact) }}">
                             詳細
-                            </a>
-                        </div>
+                        </button>
                     </td>
                 </tr>
                 @endforeach
-
+                {{-- <form action="{{ route('admin.contact') }}" class="result-table__delete"method="POST"> --}}
+                    <form action="" class="result-table__delete"method="POST"> 
+                @method('DELETE')
+                @csrf
+                </form>
             </table>
         </div>
     </div>
+    <div id="detail-modal" class="admin-modal" aria-hidden="true">
+        <div class="admin-modal__overlay"></div>
 
+        <div class="admin-modal__content">
+            <button type="button" class="admin-modal__close">&times;</button>
+            <dl class="admin-modal__list">
+                <div>
+                    <dt>お名前</dt>
+                    <dd class="admin-modal-table__data" id="modal-name"></dd>
+                </div>
+                <div>
+                    <dt>性別</dt><dd class="admin-modal-table__data" id="modal-gender"></dd>
+                </div>
+                <div>
+                    <dt>メールアドレス</dt><dd class="admin-modal-table__data" id="modal-email"></dd>
+                </div>
+                <div>
+                    <dt>電話番号</dt><dd class="admin-modal-table__data" id="modal-tel"></dd>
+                </div>
+                <div>
+                    <dt>住所</dt><dd class="admin-modal-table__data" id="modal-address"></dd>
+                </div>
+                <div>
+                    <dt>建物名</dt><dd class="admin-modal-table__data" id="modal-building"></dd>
+                </div>
+                <div>
+                    <dt>お問い合わせの種類</dt><dd class="admin-modal-table__data" id="modal-category"></dd>
+                </div>
+                <div>
+                    <dt>お問い合わせ内容</dt><dd class="admin-modal-table__data" id="modal-content"></dd>
+                </div>
+            </dl>
+
+            <form id="delete-form" class="admin-modal-delete-form" method="POST">
+            @csrf
+            @method('DELETE')
+                <button type="submit" class="admin-modal-delete-form__button">削除</button>
+            </form>
+        </div>
+    </div>
+ </div>
 </section>
+
+@endsection
+@section('js')
+<script src="{{ asset('js/admin.js') }}"></script>
 @endsection
